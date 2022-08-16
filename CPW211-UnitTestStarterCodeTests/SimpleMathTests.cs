@@ -19,14 +19,31 @@ namespace CPW211_UnitTestStarterCode.Tests
         public void Add_TwoNumbers_ReturnsSum(double num1, double num2)
         {
             // Use the DataRow values to test the Add method
-            Assert.Fail();
+            // Arrange
+            double correctAdd = num1 + num2;
+            SimpleMath.Add(num1, num2);
+
+            // Act
+            double returnedAdd = SimpleMath.Add(num1, num2);
+
+            // Assert
+            Assert.AreEqual(correctAdd, returnedAdd);
         }
 
         [TestMethod]
         public void Multiply_TwoNumbers_ReturnsProduct()
         {
             // Use a few pairs of values to test the Multiply method
-            Assert.Fail();
+            // Arrange
+            double num2 = 502;
+            double num1 = 4;
+            double expectedProduct = num2 * num1;
+
+            // Act
+            double returnedProduct = SimpleMath.Multiply(num1, num2);
+
+            // Assert
+            Assert.AreEqual(expectedProduct, returnedProduct);
         }
 
         [TestMethod]
