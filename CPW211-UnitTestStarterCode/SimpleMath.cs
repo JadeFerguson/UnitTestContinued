@@ -28,9 +28,13 @@ namespace CPW211_UnitTestStarterCode
            return (a * b);
         }
 
-        public static double Divide(double a, double b)
+        public static double Divide(double numerator, double denominator)
         {
-            return a / b;
+            if (denominator == 0)
+            {
+                throw new ArgumentOutOfRangeException($"{nameof(denominator)} cannot devide by 0");
+            }
+            return numerator / denominator;
         }
     }
 }
