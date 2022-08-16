@@ -21,7 +21,6 @@ namespace CPW211_UnitTestStarterCode.Tests
             // Use the DataRow values to test the Add method
             // Arrange
             double correctAdd = num1 + num2;
-            SimpleMath.Add(num1, num2);
 
             // Act
             double returnedAdd = SimpleMath.Add(num1, num2);
@@ -52,11 +51,24 @@ namespace CPW211_UnitTestStarterCode.Tests
         {
             // Divide by zero should throw an argument exception with a message
             // "Denominator cannot be zero"
-            Assert.ThrowsException<ArgumentOutOfRangeException>(() => SimpleMath.Divide(numerator, denominator));
-            
+            Assert.ThrowsException<ArgumentOutOfRangeException>(() => SimpleMath.Divide(numerator, denominator));           
         }
 
-        // TODO: Test Divide method with two valid numbers
+        // Test Divide method with two valid numbers
+        [TestMethod]
+        [DataRow(50, 2)]
+        [DataRow(502, 4)]
+        public void Divide_TwoNumbers_ReturnQuotient(double numerator, double denominator)
+        {
+            // Arrange
+            double correctQuotient = numerator / denominator;
+
+            // Act
+            double returnedQuotient = SimpleMath.Divide(numerator, denominator);
+
+            // Assert
+            Assert.AreEqual(correctQuotient, returnedQuotient);
+        }
 
         // TODO: Test subtract method with two valid numbers
     }
