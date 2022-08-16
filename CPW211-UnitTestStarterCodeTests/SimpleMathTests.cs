@@ -71,5 +71,19 @@ namespace CPW211_UnitTestStarterCode.Tests
         }
 
         // TODO: Test subtract method with two valid numbers
+        [TestMethod]
+        [DataRow(107, 49)]
+        [DataRow(32, 26)]
+        public void Subtract_TwoNumbers_ReturnSum(double num2, double num1)
+        {
+            // Arrange
+            double correctSum = num1 - num2;
+
+            // Act
+            double returnedSum = SimpleMath.Subtract(num1, num2);
+
+            // Assert
+            Assert.AreEqual(correctSum, returnedSum);
+        }
     }
 }
